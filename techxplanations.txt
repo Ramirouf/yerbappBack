@@ -1,0 +1,2 @@
+Models: These are SQLAlchemy models that define the structure of your database tables, representing how data is stored.
+Schemas: These are Pydantic models used for data validation and serialization, ensuring that data exchanged via API endpoints adheres to the expected format.
