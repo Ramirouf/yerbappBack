@@ -12,6 +12,8 @@ from app.db.db import User, get_user_db
 from dotenv import load_dotenv
 import os
 
+load_dotenv()
+
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 

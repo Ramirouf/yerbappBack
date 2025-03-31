@@ -2,9 +2,11 @@ from contextlib import asynccontextmanager
 
 from fastapi import Depends, FastAPI
 
-from app.db.db import User, create_db_and_tables
+from app.models.user import User
+from app.db.db import create_db_and_tables
 from app.schemas.user import UserCreate, UserRead, UserUpdate
 from app.services.user import auth_backend, current_active_user, fastapi_users
+from app.routers import observation
 
 
 @asynccontextmanager
@@ -39,6 +41,7 @@ app.include_router(
     prefix="/users",
     tags=["users"],
 )
+app.include_router(observation.router, prefix="/api", tags=["observations"])
 
 
 @app.get("/authenticated-route")
